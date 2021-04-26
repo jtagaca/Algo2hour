@@ -1,29 +1,23 @@
-#T=O(n(logn)+m(logm)) S= O(1) since the array does not grow but remains the same
-def smallestDifference(arrayOne, arrayTwo):
-    # Write your code here.
-	oput=[]
-	arrayOne.sort()
-	arrayTwo.sort()
-	
-	p1=0
-	p2=0
-	prevtab=float("inf")
-	currentabs=float("inf")
-	while p1 <len(arrayOne) and p2 <len(arrayTwo):
-	
-	    currentabs=abs(arrayOne[p1]-arrayTwo[p2])
-	
-	
-	    if prevtab > currentabs:
-	        prevtab=currentabs
-	        oput=[arrayOne[p1], arrayTwo[p2]]
-	
-	    if currentabs== 0:
-	        return [arrayOne[p1], arrayTwo[p2]]
-	    else:
-	        if arrayOne[p1]> arrayTwo[p2]:
-	            p2+=1
-	        elif arrayOne[p1]<arrayTwo[p2]:
-	            p1+=1
-	
-	return oput
+def moveElementToEnd(array, toMove):
+    # Write your code here
+	left= 0
+	right= len(array)-1
+	while  left <right  or left==right :
+		if array[left]==toMove and array[right]==toMove:
+			array[left],array[right]=array[right], array[left]
+			left+=1
+			right-=1
+		elif left < right:
+			if array[left]!=toMove:
+				left+=1
+			if array[right]==toMove:
+				right-=1
+			
+	return array
+
+
+
+array=[2, 1, 2, 2, 2, 3, 4, 2]
+toMove=2
+
+moveElementToEnd(array, toMove)
