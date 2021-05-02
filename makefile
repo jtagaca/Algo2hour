@@ -1,7 +1,5 @@
-
-
-All: do
-.PHONY: do
-do:
-    @echo "What is the name of the file?: "; \
-    read file && touch "$${file}.py"
+All: dothis
+# .PHONY: do
+dothis:
+    echo "TESTING"
+    read -p "Name of file? " filetest ; touch "$${filetest}.py"

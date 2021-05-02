@@ -1,23 +1,31 @@
-def moveElementToEnd(array, toMove):
+def spiralTraverse(array):
     # Write your code here
-	left= 0
-	right= len(array)-1
-	while  left <right  or left==right :
-		if array[left]==toMove and array[right]==toMove:
-			array[left],array[right]=array[right], array[left]
-			left+=1
-			right-=1
-		elif left < right:
-			if array[left]!=toMove:
-				left+=1
-			if array[right]==toMove:
-				right-=1
-			
-	return array
+    startrow = 0
+    endrow = len(array)-1
+    startcol = 0
+    endcol = len(array[0])-1
+    spiralarray = []
+
+    while startrow <= endrow:
+		spiralarray.append(array[startrow][startcol])
+		if startcol == endcol:
+            startrow += 1
+        else:
+            startcol += 1
+    return spiralarray 
 
 
+	
+array = [
+    [1, 2, 3, 4],
+    [12, 13, 14, 5],
+    [11, 16, 15, 6],
+    [10, 9, 8, 7]
+]
 
-array=[2, 1, 2, 2, 2, 3, 4, 2]
-toMove=2
+# spiralarray.append(array[startrow][startcol])
 
-moveElementToEnd(array, toMove)
+# print(len(array[0]))
+# print(array[1][2])
+v = spiralTraverse(array)
+print(v)
