@@ -24,9 +24,13 @@ def sortedSquaredArray(array):
 		if abs(smallvalue)>abs(largervalue):
 			sortsquared[i]=smallvalue*smallvalue
 			left=left+1
-		
+
+
+
+
+
 		else:
 			sortsquared[i]=largervalue* largervalue
 			right=right-1
-			
+
     return sortsquared
