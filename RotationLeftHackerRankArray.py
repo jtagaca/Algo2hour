@@ -16,12 +16,27 @@ import sys
 #
 
 
+# we are removing the first element then appending it to the last index
+# this will run O(1) space because we are not using extra memory or change the length of the given array
+# one thing that we can do if optimization is required is that we can slice the array into two parts and return that array
 def rotLeft(a, d):
-    # O(n) O(1)
+    # O(n)T  O(1)S
     # Write your code here
     for i in range(d):
         v = a.pop(0)
         a.append(v)
+    return a
+
+
+# split the array into two sub arrays and re joined them together after getting split
+# first array is the index that is getting split so starting from index (d) to end then we make another sub array that is
+# from the start to the index not including d
+
+# this has a time complexity of O(1) and space complexity of O(1)
+def rotLeft(a, d):
+    # O(n)T  O(1)S
+    # Write your code here
+    a = a[d:]+a[:d]
     return a
 
 
