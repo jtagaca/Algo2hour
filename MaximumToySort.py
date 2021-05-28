@@ -19,21 +19,26 @@ def maximumToys(prices, k):
     # Write your code here
     # we can sort or pop it min then minus the k then plus the count but that might be
     counter = 0
-    pricesRef = prices.copy()s
+    pricesRef = prices.copy()
 
     for i in range(len(prices)):
         if prices[i] > k:
             continue
         else:
+
+            # //TODO  15 minutes to debug if not then just do the transform method
             # for i in range
-            g = pricesRef.pop(min(pricesRef))
-            k = k - g
-            counter += 1
+            h = min(pricesRef)
+            g = pricesRef.pop(h)
+            # k = k - g
+            print(g)
+            # counter += 1
+            # print(pricesRef)
     return counter
 
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     first_multiple_input = input().rstrip().split()
 
@@ -44,7 +49,8 @@ if __name__ == '__main__':
     prices = list(map(int, input().rstrip().split()))
 
     result = maximumToys(prices, k)
+    print(result)
 
-    fptr.write(str(result) + '\n')
+    # fptr.write(str(result) + '\n')
 
-    fptr.close()
+    # fptr.close()
