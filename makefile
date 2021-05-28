@@ -1,5 +1,40 @@
-All: dothis
-# .PHONY: do
-dothis:
-    echo "TESTING"
-    read -p "Name of file? " filetest ; touch "$${filetest}.py"
+all: GCD exec #this has to be like an if GCD and else Exec you can also make GCD and just run that code. @ sign is a way to  make it invisible but still run the code.
+
+GCD: lab2.cpp
+	g++ lab2.cpp -lstdc++
+
+exec:
+	@echo "Test with 5 cases"
+	for number in 1 2 3 4 5; do \
+		./a.out <input_$$number >> output; \
+	done
+	@cat output2
+
+py:
+
+	@echo "Test with 5 cases"
+	make clean
+	for number in 1; do \
+		python3 minimumSwapsArrayhackerRank.py <input_$$number >> output; \
+	done
+
+py1:
+
+	@echo "Test with 5 cases"
+	rm output
+	touch output
+	for number in 1 2 ; do \
+		python3 maxcoinChangeDP.py <input_$$number >> output; \
+	done
+
+
+	
+clean: 
+	rm output
+	touch output
+
+
+do :
+    @echo "What is the name of the file?: "; \
+    read file; \
+    touch $$(file).py
