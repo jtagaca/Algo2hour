@@ -15,25 +15,39 @@ import sys
 #
 
 
+# def maximumToys(prices, k):
+#     # Write your code here
+#     # we can sort or pop it min then minus the k then plus the count but that might be
+#     counter = 0
+#     pricesRef = prices.copy()
+
+#     for i in range(len(prices)):
+#         if prices[i] > k:
+#             continue
+#         else:
+
+#             # //TODO  15 minutes to debug if not then just do the transform method
+#             # for i in range
+#             h = min(pricesRef)
+#             if k > 0 and k-h < k:
+
+#                 k = k - h
+#                 pricesRef.remove(h)
+#                 counter += 1
+#             # print(pricesRef)
+#     return counter
+
+# On(logn) in tbecauseweareusingatransfromalgorithmthatwilltransformthearray
+# and the space is O(1) because there was not a need for extra memory
+
 def maximumToys(prices, k):
-    # Write your code here
-    # we can sort or pop it min then minus the k then plus the count but that might be
+    prices.sort()
     counter = 0
-    pricesRef = prices.copy()
-
     for i in range(len(prices)):
-        if prices[i] > k:
-            continue
-        else:
+        if prices[i] <= k:
+            k = k-prices[i]
+            counter += 1
 
-            # //TODO  15 minutes to debug if not then just do the transform method
-            # for i in range
-            h = min(pricesRef)
-            g = pricesRef.pop(h)
-            # k = k - g
-            print(g)
-            # counter += 1
-            # print(pricesRef)
     return counter
 
 
