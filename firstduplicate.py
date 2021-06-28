@@ -11,3 +11,6 @@ def firstDuplicateValue(array):
             return absoluteval
         array[absoluteval-1] *= -1
     return -1
+
+
+# make sure to tell the brute force first then optimize as you go
