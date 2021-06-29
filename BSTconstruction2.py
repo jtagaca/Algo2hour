@@ -57,17 +57,19 @@ class BST:
                  # we are saving the current node to be the parent then we are traversing to the right
                 parentNode = currentNode
                 currentNode = currentNode.right
+            # we found it and now we are trying to remove it
             else:
                 
                 # We are now removing
-                # edge case for removing a node that has two children 
+                # edge case for removing a node that has two children
+                # we are just repointing them from so that they are removed from the BST
                 if currentNode.left is not None: and currentNode.right is not None:
                     currentNode.value = currentNode.right.getMinValue()
 
                 elif parentNode is None:
 
 
-# edge case for removing a node in between that has a parent and a child ↓
+                # edge case for removing a node in between that has a parent and a child ↓
                 elif parentNode.left == currentNode.left:
                     parentNode.left = currentNode.left if currentNode.left is not None else currentNode.right
                 elif parentNode.right == currentNode.right:
