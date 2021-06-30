@@ -8,9 +8,10 @@ import unittest
 
 class TestProgram(unittest.TestCase):
     def test_case_1(self):
-        input = [2, 1, 5, 2, 3, 3, 4]
-        expected = 2
-        actual = program.firstDuplicateValue(input)
+        redShirtHeights = [19, 2, 4, 6, 2, 3, 1, 1, 4]
+        blueShirtHeights =  [21, 5, 4, 4, 4, 4, 4, 4, 4]
+        expected = True
+        actual = program.classPhotos(redShirtHeights, blueShirtHeights)
         self.assertEqual(actual, expected)
 
 

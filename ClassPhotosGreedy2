@@ -9,7 +9,7 @@ def classPhotos(redShirtHeights, blueShirtHeights):
 	# way to keep track of who is the first 
 	whoShouldbefirst="red" if redShirtHeights[0]> blueShirtHeights[0] else "blue"
 	for i in range(len(redShirtHeights)):
-		redshirt=redShirtHeights[i]
+		redshirt=rewdShirtHeights[i]
 		blueshirt=blueShirtHeights[i]
 		if whoShouldbefirst=="red":
 			# if any of the redshirt(a value in redshirts) is less than because redshirts should be taller than the blue then 
