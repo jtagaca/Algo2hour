@@ -8,11 +8,17 @@ import unittest
 
 class TestProgram(unittest.TestCase):
     def test_case_1(self):
-        redShirtHeights = [19, 2, 4, 6, 2, 3, 1, 1, 4]
-        blueShirtHeights =  [21, 5, 4, 4, 4, 4, 4, 4, 4]
-        expected = True
-        actual = program.classPhotos(redShirtHeights, blueShirtHeights)
-        self.assertEqual(actual, expected)
+        output = list(map(lambda x: set(x), program.powerset([1, 2, 3])))
+        self.assertTrue(len(output) == 8)
+        self.assertTrue(set([]) in output)
+        self.assertTrue(set([1]) in output)
+        self.assertTrue(set([2]) in output)
+        self.assertTrue(set([1, 2]) in output)
+        self.assertTrue(set([3]) in output)
+        self.assertTrue(set([1, 3]) in output)
+        self.assertTrue(set([2, 3]) in output)
+        self.assertTrue(set([1, 2, 3]) in output)
+
 
 
 if __name__ == '__main__':

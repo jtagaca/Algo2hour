@@ -1,25 +1,15 @@
-def classPhotos(redShirtHeights, blueShirtHeights):
+def powerset(array):
     # Write your code here.
-	#wee need to check who has the highest number 
-	#(nlogn) because we sorted O(1)
-	#jst to keep track of who should be the first 
-	redShirtHeights.sort(reverse=True)
-	blueShirtHeights.sort(reverse=True)
 	
-	# way to keep track of who is the first 
-	whoShouldbefirst="red" if redShirtHeights[0]> blueShirtHeights[0] else "blue"
-	for i in range(len(redShirtHeights)):
-		redshirt=redShirtHeights[i]
-		blueshirt=blueShirtHeights[i]
-		if whoShouldbefirst=="red":
-			# if any of the redshirt(a value in redshirts) is less than because redshirts should be taller than the blue then 
-			# it will return false same applies for the else 
-			if redshirt<=blueshirt:
-				return False
-			
-		else:
-			if blueshirt<=redshirt:
-				return False
-	return True
-			
-			
+	# if i== to the len of array then we append it. 
+	# but the array should be unique
+	# 2^n
+	subset=[[]]
+	for element in array:
+		for i in range(len(subset)):
+			currentsubset=subset[i]
+			# appending a new array to the subset.
+			subset.append(currentsubset+[element])
+	
+	
+	return subset
