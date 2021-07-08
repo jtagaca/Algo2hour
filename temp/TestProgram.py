@@ -17,5 +17,6 @@ class TestProgram(unittest.TestCase):
         actual = program.staircaseTraversal(stairs, maxSteps)
         self.assertEqual(actual, expected)
 
+
 if __name__ == '__main__':
     unittest.main()

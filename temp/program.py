@@ -1,15 +1,12 @@
 def staircaseTraversal(height, maxSteps):
     # Write your code here.
-    # initialize result
-    result = [0] * (height+1)
-    # base cases
-    result[0] = 1
-    result[1] = 1
+    currentNum = 0
+    listvar = [1]
 
-    for currentHeight in range(2, height+1):
-        step = 1
-        while step <= maxSteps and step <= height:
-            result[currentHeight] += result[currentHeight-step]
-            step += 1
-        print(result)
-    return result[height]
+    for currentHeight in range(1, height+1):
+        startwin = currentHeight-maxSteps-1
+        closewin = currentHeight-1
+        if startwin >= 0:
+            currentNum -= listvar[startwin]
+        currentNum += listvar[closewin]
+        listvar.append(currentNum)
