@@ -1,12 +1,14 @@
-def staircaseTraversal(height, maxSteps):
+def generateDocument(characters, document):
     # Write your code here.
-    currentNum = 0
-    listvar = [1]
-
-    for currentHeight in range(1, height+1):
-        startwin = currentHeight-maxSteps-1
-        closewin = currentHeight-1
-        if startwin >= 0:
-            currentNum -= listvar[startwin]
-        currentNum += listvar[closewin]
-        listvar.append(currentNum)
+    h = {"": float("inf")}
+    for letter in characters:
+        if letter in h:
+            h[letter] += 1
+        else:
+            h[letter] = 1
+    for letter in document:
+        if letter in h:
+            h[letter] -= 1
+        else:
+            return False
+    return True
