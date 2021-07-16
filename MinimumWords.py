@@ -1,3 +1,9 @@
+
+# we have a result that we update for eachword and we also convert each word to
+# a frequency and then after this we just loop through the result and we keep deducting
+# of the frequency
+# O(n*w) where n is the len of the array and w is the len of the maximum word
+# space would be O(c) where c is the number of unique charatcter in the array of words
 def minimumCharactersForWords(words):
     # Write your code here.
     result = {}
