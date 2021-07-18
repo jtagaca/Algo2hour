@@ -4,7 +4,24 @@ import unittest
 
 class TestProgram(unittest.TestCase):
     def test_case_1(self):
-        self.assertEqual(program.hasSingleCycle([2, 3, 1, -4, -4, 2]), True)
+        input = [
+            [1, 0, 0, 0, 0, 0],
+            [0, 1, 0, 1, 1, 1],
+            [0, 0, 1, 0, 1, 0],
+            [1, 1, 0, 0, 1, 0],
+            [1, 0, 1, 1, 0, 0],
+            [1, 0, 0, 0, 0, 1],
+        ]
+        expected = [
+            [1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1],
+            [0, 0, 0, 0, 1, 0],
+            [1, 1, 0, 0, 1, 0],
+            [1, 0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 1],
+        ]
+        actual = program.removeIslands(input)
+        self.assertEqual(actual, expected)
 
 
 if __name__ == '__main__':

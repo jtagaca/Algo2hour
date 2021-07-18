@@ -1,16 +1,35 @@
-def hasSingleCycle(array):
+def removeIslands(matrix):
     # Write your code here.
-    elementsVisited = 0
-    currentIdx = 0
-    while elementsVisited < len(array):
-        if elementsVisited > 0 and currentIdx == 0:
-            return False
-        elementsVisited += 1
-        currentIdx = getJump(array, currentIdx)
-    return currentIdx == 0s
+    visited = [[False for col in matrix[0]] for row in matrix]
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            if matrix[row][col] == 0:
+                visited[row][col] = True
+                continue
+            if visited[row][col] == True:
+                continue
+            visited[row][col] = True
+
+            if isPartofBounds(row, col, matrix, visited) == False:
+                matrix[row][col] = 0
+    return matrix
 
 
-def getJump(array, currentIdx):
-    jump = array[currentIdx]
-    nextIdx = (currentIdx+jump) % len(array)
-    return nextIdx if nextIdx >= 0 else nextIdx+len(array)
+def isPartofBounds(row, col, matrix, visited):
+    stack = [[row, col]]
+    while len(stack) > 0:
+        current = stack.pop()
+        currentRow, currentCol = current
+        # we are marking it visited even though it should not be
+        visited[currentRow][currentCol] = True
+        if currentRow == 0 or currentRow == len(matrix)-1 or currentCol == 0 or currentCol == len(matrix[0])-1:
+            return True
+        if matrix[currentRow-1][currentCol] == 1 and visited[currentRow-1][currentCol] == False:
+            stack.append([currentRow-1, currentCol])
+        if matrix[currentRow+1][currentCol] == 1 and visited[currentRow+1][currentCol] == False:
+            stack.append([currentRow+1, currentCol])
+        if matrix[currentRow][currentCol-1] == 1 and visited[currentRow][currentCol-1] == False:
+            stack.append([currentRow, currentCol-1])
+        if matrix[currentRow][currentCol+1] == 1 and visited[currentRow][currentCol+1] == False:
+            stack.append([currentRow, currentCol+1])
+    return False
