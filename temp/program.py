@@ -1,36 +1,16 @@
-def minimumCharactersForWords(words):
+def hasSingleCycle(array):
     # Write your code here.
-    result = {}
-    for word in words:
-        frequencyForWord = getFrequency(word)
-        updateCurrentResult(result, frequencyForWord)
-    resultList = showFrequency(result)
-    return resultList
+    elementsVisited = 0
+    currentIdx = 0
+    while elementsVisited < len(array):
+        if elementsVisited > 0 and currentIdx == 0:
+            return False
+        elementsVisited += 1
+        currentIdx = getJump(array, currentIdx)
+    return currentIdx == 0s
 
 
-def getFrequency(word):
-    tempResult = {}
-    for char in word:
-        if char in tempResult:
-            tempResult[char] += 1
-        else:
-            tempResult[char] = 1
-    return tempResult
-
-
-def updateCurrentResult(result, frequencyForWord):
-    for key in frequencyForWord:
-        frequency = frequencyForWord[key]
-        if key in result:
-            result[key] = max(frequency, result[key])
-        else:
-            result[key] = frequency
-
-
-def showFrequency(result):
-    templist = []
-    for key in result:
-        frequency = result[key]
-        while frequency > 0:
-            templist.append(str(key))
-    return templist
+def getJump(array, currentIdx):
+    jump = array[currentIdx]
+    nextIdx = (currentIdx+jump) % len(array)
+    return nextIdx if nextIdx >= 0 else nextIdx+len(array)
