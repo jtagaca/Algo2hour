@@ -8,7 +8,8 @@ import unittest
 
 class TestProgram(unittest.TestCase):
     def test_case_1(self):
-        self.assertEqual(program.searchForRange([0, 1, 21, 33, 45, 45, 45, 45, 45, 45, 61, 71, 73], 45), [4, 9])
+        self.assertEqual(program.maxSubsetSumNoAdjacent(
+            [75, 105, 120, 75, 90, 135]), 330)
 
 
 if __name__ == '__main__':
