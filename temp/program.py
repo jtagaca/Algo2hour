@@ -1,17 +1,21 @@
-def maxSubsetSumNoAdjacent(array):
+# This is an input class. Do not edit.
+class LinkedList:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
+def removeDuplicatesFromLinkedList(linkedList):
     # Write your code here.
-    if len(array) == 0:
-        return 0
-    elif len(array) == 1:
-        return array[0]
-    second = array[0]
-    first = max(array[0], array[1])
-    # first will contain the element that has the highest value and the second will contain
-    # the value that can be summed up with the current position of the array or i at this case.
-    # and the trick is that it does not need to  be i-1 or i-2 but rather the first will always contain
-    # the highest that we can sum up and the second will contain value that we can use to either sum with the current position
-    for i in range(2, len(array)):
-        current = max(first, second + array[i])
-        second = first
-        first = current
-    return first
+    # passing in the top only
+
+    current = linkedList
+    while current is not None:
+        distinct = current.next
+        # a none  value will also not have a property and that is why we have to perform a check heres
+        # this will always be true and we should only keep iterating until we are not the same anymore
+        while distinct is not None or distinct.value == current.value:
+            distinct = distinct.next
+        current.next = distinct
+        current = distinct
+    return linkedList
